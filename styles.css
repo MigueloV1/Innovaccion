@@ -13,7 +13,7 @@ body {
 
 /* Encabezado */
 header {
-  background: #4CAF50; /* Color verde para destacar el encabezado */
+  background: #1e88e5; /* Color azul para el encabezado */
   color: #ffffff;
   padding: 1em 0;
   text-align: center;
@@ -43,7 +43,7 @@ header h1 {
 }
 
 .navbar a:hover {
-  color: #ffa726;
+  color: #ffc107;
 }
 
 /* Sección principal */
@@ -75,7 +75,7 @@ p {
 }
 
 .option-card {
-  background: #fff3e0;
+  background: #e3f2fd; /* Fondo azul claro */
   border: 1px solid #ddd;
   border-radius: 10px;
   text-align: center;
@@ -93,18 +93,18 @@ p {
 
 .option-card h3 {
   margin: 10px 0;
-  color: #333;
+  color: #1e88e5;
 }
 
 .option-card p {
   font-size: 0.9em;
-  color: #777;
+  color: #555;
 }
 
 /* Botones */
 .btn {
   display: inline-block;
-  background: #0288d1;
+  background: #0288d1; /* Azul para los botones */
   color: #ffffff;
   padding: 10px 20px;
   margin-top: 10px;
@@ -143,7 +143,6 @@ input:focus, textarea:focus, select:focus {
 button.btn {
   width: 100%;
   cursor: pointer;
-  margin-top: 10px;
 }
 
 /* Sección de resultados */
@@ -153,7 +152,7 @@ button.btn {
 }
 
 #results-list li {
-  background: #f5f5f5;
+  background: #eeeeee;
   border: 1px solid #ddd;
   margin: 10px 0;
   padding: 15px;
@@ -174,7 +173,7 @@ button.btn {
 }
 
 .guide-card {
-  background: #e8f5e9;
+  background: #e0f7fa;
   border: 1px solid #ddd;
   border-radius: 10px;
   text-align: center;
@@ -189,7 +188,7 @@ button.btn {
 }
 
 footer {
-  background: #4CAF50;
+  background: #1e88e5;
   color: #ffffff;
   text-align: center;
   padding: 1em;
