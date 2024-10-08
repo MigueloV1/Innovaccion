@@ -21,14 +21,41 @@
     </nav>
   </header>
 
-  <!-- Sección de bienvenida e introducción -->
+  <!-- Sección principal con las tres opciones -->
   <section id="options" class="main-section">
     <div class="welcome">
       <h2>Bienvenido a la Plataforma de Inclusión Laboral</h2>
       <p>Nuestro objetivo es conectar a las empresas con personas con discapacidades físicas, promoviendo la inclusión laboral en un entorno accesible y adaptable.</p>
-      <div class="buttons">
-        <button class="btn" onclick="showSection('search-jobs')">Buscar Trabajo</button>
-        <button class="btn" onclick="readText('Bienvenido a la Plataforma de Inclusión Laboral. Nuestro objetivo es conectar a las empresas con personas con discapacidades físicas, promoviendo la inclusión laboral en un entorno accesible y adaptable.')">Escuchar</button>
+    </div>
+    <div class="options-container">
+      <!-- Opción Buscar Empleo -->
+      <div class="option-card">
+        <h3>Buscar Empleo</h3>
+        <p>Encuentra oportunidades laborales adaptadas a tus necesidades.</p>
+        <div class="buttons">
+          <button class="btn" onclick="showSection('search-jobs')">Buscar Trabajo</button>
+          <button class="btn" onclick="readText('Buscar Empleo. Encuentra oportunidades laborales adaptadas a tus necesidades.')">Escuchar</button>
+        </div>
+      </div>
+
+      <!-- Opción Registrar Vacante -->
+      <div class="option-card">
+        <h3>Registrar Vacante</h3>
+        <p>Publica oportunidades laborales adaptadas para personas con discapacidades físicas.</p>
+        <div class="buttons">
+          <button class="btn" onclick="showSection('post-vacancy')">Registrar Vacante</button>
+          <button class="btn" onclick="readText('Registrar Vacante. Publica oportunidades laborales adaptadas para personas con discapacidades físicas.')">Escuchar</button>
+        </div>
+      </div>
+
+      <!-- Opción Guías de Adaptación -->
+      <div class="option-card">
+        <h3>Guías de Adaptación</h3>
+        <p>Consulta nuestras guías para adaptar el entorno de trabajo según la discapacidad.</p>
+        <div class="buttons">
+          <button class="btn" onclick="showSection('resources')">Ver Guías</button>
+          <button class="btn" onclick="readText('Guías de Adaptación. Consulta nuestras guías para adaptar el entorno de trabajo según la discapacidad.')">Escuchar</button>
+        </div>
       </div>
     </div>
   </section>
