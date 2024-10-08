@@ -87,6 +87,8 @@ function searchJobs() {
 
 // Función para leer texto en voz alta usando SpeechSynthesis
 function readText(text) {
+  console.log("Función readText llamada con el siguiente texto: ", text); // Mensaje de depuración
+
   // Verificar que el navegador soporte la API de lectura
   if ('speechSynthesis' in window) {
     // Crear una nueva instancia de SpeechSynthesisUtterance con el texto proporcionado
@@ -98,6 +100,7 @@ function readText(text) {
 
     // Iniciar la lectura
     window.speechSynthesis.speak(utterance);
+    console.log("Iniciando lectura en voz alta..."); // Mensaje de depuración
   } else {
     alert('Lo siento, tu navegador no soporta la lectura en voz alta.');
   }
