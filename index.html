@@ -12,16 +12,23 @@
   <header>
     <h1>Portal de Inclusión Laboral</h1>
     <nav>
-      <a href="#" onclick="showSection('options')">Inicio</a>
-      <a href="#" onclick="showSection('resources')">Guías para Empresas</a>
+      <ul class="navbar">
+        <li><a href="#" onclick="showSection('options')">Inicio</a></li>
+        <li><a href="#" onclick="showSection('search-jobs')">Buscar Empleo</a></li>
+        <li><a href="#" onclick="showSection('post-vacancy')">Registrar Vacante</a></li>
+        <li><a href="#" onclick="showSection('resources')">Guías de Adaptación</a></li>
+      </ul>
     </nav>
   </header>
 
-  <!-- Sección de opciones principales -->
+  <!-- Sección de bienvenida e introducción -->
   <section id="options" class="main-section">
-    <h2>Bienvenido a la Plataforma de Inclusión Laboral</h2>
-    <p>Selecciona una de las opciones a continuación:</p>
+    <div class="welcome">
+      <h2>Bienvenido a la Plataforma de Inclusión Laboral</h2>
+      <p>Nuestro objetivo es conectar a las empresas con personas con discapacidades físicas, promoviendo la inclusión laboral en un entorno accesible y adaptable.</p>
+    </div>
     <div class="options-container">
+      <!-- Tarjetas de opciones principales -->
       <div class="option-card" onclick="showSection('search-jobs')">
         <h3>Buscar Empleo</h3>
         <p>Encuentra oportunidades laborales adaptadas a tus necesidades.</p>
@@ -33,12 +40,19 @@
         <p>Publica oportunidades laborales adaptadas para personas con discapacidades físicas.</p>
         <button class="btn">Ver más</button>
       </div>
+
+      <div class="option-card" onclick="showSection('resources')">
+        <h3>Guías de Adaptación</h3>
+        <p>Consulta nuestras guías para adaptar el entorno de trabajo según la discapacidad.</p>
+        <button class="btn">Ver más</button>
+      </div>
     </div>
   </section>
 
   <!-- Sección para registrar vacantes -->
   <section id="post-vacancy" class="main-section" style="display: none;">
     <h2>Registrar una Vacante</h2>
+    <p>Las empresas pueden publicar sus vacantes de empleo adaptadas para personas con discapacidad física.</p>
     <form id="vacancy-form">
       <label for="company-name">Nombre de la Empresa:</label>
       <input type="text" id="company-name" placeholder="Ej. ABC Corp" required>
@@ -81,13 +95,20 @@
   <!-- Sección de guías para empresas -->
   <section id="resources" class="main-section" style="display: none;">
     <h2>Guías de Adaptación para Empresas</h2>
-    <p>Consulta nuestras recomendaciones para adaptar el lugar de trabajo según las diferentes discapacidades físicas.</p>
-    <ul class="resource-list">
-      <li><a href="https://www.ejemplo.com/guia-motora" target="_blank">Adaptaciones para Discapacidad Motora</a></li>
-      <li><a href="https://www.ejemplo.com/guia-visual" target="_blank">Adaptaciones para Discapacidad Visual</a></li>
-      <li><a href="https://www.ejemplo.com/guia-auditiva" target="_blank">Adaptaciones para Discapacidad Auditiva</a></li>
-      <li><a href="https://www.ejemplo.com/guia-otra" target="_blank">Otras Adaptaciones Físicas</a></li>
-    </ul>
+    <div class="guides-container">
+      <div class="guide-card">
+        <h3>Adaptación para Discapacidad Motora</h3>
+        <a href="guia-motora.html" class="btn">Ver Guía</a>
+      </div>
+      <div class="guide-card">
+        <h3>Adaptación para Discapacidad Visual</h3>
+        <a href="guia-visual.html" class="btn">Ver Guía</a>
+      </div>
+      <div class="guide-card">
+        <h3>Adaptación para Discapacidad Auditiva</h3>
+        <a href="guia-auditiva.html" class="btn">Ver Guía</a>
+      </div>
+    </div>
   </section>
 
   <!-- Pie de página -->
