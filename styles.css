@@ -6,32 +6,33 @@ body, h1, h2, h3, p, a, li, ul {
 }
 
 body {
-  background: #f4f4f4;
+  background: #f2f2f2;
+  color: #333;
   line-height: 1.6;
 }
 
 /* Encabezado */
 header {
-  background: #333;
+  background: #4CAF50; /* Color verde para destacar el encabezado */
   color: #ffffff;
   padding: 1em 0;
   text-align: center;
 }
 
 header h1 {
-  font-size: 2em;
+  font-size: 2.5em;
   margin: 0;
 }
 
 .navbar {
   display: flex;
   justify-content: center;
-  padding: 0;
   list-style: none;
+  padding: 10px 0;
 }
 
 .navbar li {
-  margin: 0 15px;
+  margin: 0 20px;
 }
 
 .navbar a {
@@ -51,8 +52,8 @@ header h1 {
   max-width: 1000px;
   padding: 20px;
   background: #ffffff;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
@@ -74,7 +75,7 @@ p {
 }
 
 .option-card {
-  background: #eceff1;
+  background: #fff3e0;
   border: 1px solid #ddd;
   border-radius: 10px;
   text-align: center;
@@ -97,9 +98,10 @@ p {
 
 .option-card p {
   font-size: 0.9em;
-  color: #555;
+  color: #777;
 }
 
+/* Botones */
 .btn {
   display: inline-block;
   background: #0288d1;
@@ -141,6 +143,7 @@ input:focus, textarea:focus, select:focus {
 button.btn {
   width: 100%;
   cursor: pointer;
+  margin-top: 10px;
 }
 
 /* Sección de resultados */
@@ -150,11 +153,17 @@ button.btn {
 }
 
 #results-list li {
-  background: #eeeeee;
+  background: #f5f5f5;
   border: 1px solid #ddd;
   margin: 10px 0;
   padding: 15px;
   border-radius: 5px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#results-list li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Guías */
@@ -165,7 +174,7 @@ button.btn {
 }
 
 .guide-card {
-  background: #f5f5f5;
+  background: #e8f5e9;
   border: 1px solid #ddd;
   border-radius: 10px;
   text-align: center;
@@ -180,7 +189,7 @@ button.btn {
 }
 
 footer {
-  background: #333;
+  background: #4CAF50;
   color: #ffffff;
   text-align: center;
   padding: 1em;
