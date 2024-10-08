@@ -26,27 +26,31 @@
     <div class="welcome">
       <h2>Bienvenido a la Plataforma de Inclusión Laboral</h2>
       <p>Nuestro objetivo es conectar a las empresas con personas con discapacidades físicas, promoviendo la inclusión laboral en un entorno accesible y adaptable.</p>
-      <button class="btn" onclick="readText('Bienvenido a la Plataforma de Inclusión Laboral. Nuestro objetivo es conectar a las empresas con personas con discapacidades físicas, promoviendo la inclusión laboral en un entorno accesible y adaptable.')">Escuchar</button>
+      <div class="buttons">
+        <button class="btn" onclick="showSection('search-jobs')">Buscar Trabajo</button>
+        <button class="btn" onclick="readText('Bienvenido a la Plataforma de Inclusión Laboral. Nuestro objetivo es conectar a las empresas con personas con discapacidades físicas, promoviendo la inclusión laboral en un entorno accesible y adaptable.')">Escuchar</button>
+      </div>
     </div>
-    <div class="options-container">
-      <!-- Tarjetas de opciones principales -->
-      <div class="option-card" onclick="showSection('search-jobs')">
-        <h3>Buscar Empleo</h3>
-        <p>Encuentra oportunidades laborales adaptadas a tus necesidades.</p>
-        <button class="btn" onclick="readText('Buscar Empleo. Encuentra oportunidades laborales adaptadas a tus necesidades.')">Escuchar</button>
-      </div>
+  </section>
 
-      <div class="option-card" onclick="showSection('post-vacancy')">
-        <h3>Registrar Vacante</h3>
-        <p>Publica oportunidades laborales adaptadas para personas con discapacidades físicas.</p>
-        <button class="btn" onclick="readText('Registrar Vacante. Publica oportunidades laborales adaptadas para personas con discapacidades físicas.')">Escuchar</button>
+  <!-- Sección para buscar empleo -->
+  <section id="search-jobs" class="main-section" style="display: none;">
+    <h2>Buscar Empleo</h2>
+    <form id="job-search-form">
+      <label for="search-title">Título del Empleo:</label>
+      <input type="text" id="search-title" placeholder="Ej. Recepcionista">
+      <label for="search-location">Ubicación:</label>
+      <input type="text" id="search-location" placeholder="Ej. Santiago">
+      <div class="buttons">
+        <button type="button" class="btn" onclick="searchJobs()">Buscar</button>
+        <button class="btn" onclick="readText('Buscar Empleo. Ingresa el título del empleo y la ubicación para encontrar oportunidades laborales.')">Escuchar</button>
       </div>
-
-      <div class="option-card" onclick="showSection('resources')">
-        <h3>Guías de Adaptación</h3>
-        <p>Consulta nuestras guías para adaptar el entorno de trabajo según la discapacidad.</p>
-        <button class="btn" onclick="readText('Guías de Adaptación. Consulta nuestras guías para adaptar el entorno de trabajo según la discapacidad.')">Escuchar</button>
-      </div>
+    </form>
+    <div id="search-results">
+      <h3>Resultados de Búsqueda:</h3>
+      <ul id="results-list">
+        <!-- Los resultados de búsqueda aparecerán aquí -->
+      </ul>
     </div>
   </section>
 
@@ -63,33 +67,20 @@
       <input type="text" id="job-location" placeholder="Ej. Santiago, Chile" required>
       <label for="job-description">Descripción del Trabajo:</label>
       <textarea id="job-description" rows="4" placeholder="Descripción del empleo y requisitos" required></textarea>
-      <button type="submit" class="btn">Registrar Vacante</button>
+      <div class="buttons">
+        <button type="submit" class="btn">Registrar Vacante</button>
+        <button type="button" class="btn" onclick="readText('Registrar Vacante. Ingresa el nombre de la empresa, el título del empleo, la ubicación y la descripción del trabajo para registrar una vacante nueva.')">Escuchar</button>
+      </div>
     </form>
-  </section>
-
-  <!-- Sección de búsqueda de empleo -->
-  <section id="search-jobs" class="main-section" style="display: none;">
-    <h2>Buscar Empleo</h2>
-    <form id="job-search-form">
-      <label for="search-title">Título del Empleo:</label>
-      <input type="text" id="search-title" placeholder="Ej. Recepcionista">
-      <label for="search-location">Ubicación:</label>
-      <input type="text" id="search-location" placeholder="Ej. Santiago">
-      <button type="button" class="btn" onclick="searchJobs()">Buscar</button>
-    </form>
-    <button class="btn" onclick="readText('Buscar Empleo. Ingresa el título del empleo y la ubicación para encontrar oportunidades laborales.')">Escuchar</button>
-
-    <div id="search-results">
-      <h3>Resultados de Búsqueda:</h3>
-      <ul id="results-list">
-        <!-- Los resultados de búsqueda aparecerán aquí -->
-      </ul>
-    </div>
   </section>
 
   <!-- Sección de guías para empresas -->
   <section id="resources" class="main-section" style="display: none;">
     <h2>Guías de Adaptación para Empresas</h2>
+    <p>Consulta nuestras guías para adaptar el entorno de trabajo según la discapacidad.</p>
+    <div class="buttons">
+      <button class="btn" onclick="readText('Guías de Adaptación. Consulta nuestras guías para adaptar el entorno de trabajo según la discapacidad.')">Escuchar</button>
+    </div>
     <div class="guides-container">
       <div class="guide-card">
         <h3>Adaptación para Discapacidad Motora</h3>
