@@ -1,12 +1,9 @@
-// Función para mostrar la sección seleccionada
+// Mostrar la sección seleccionada
 function showSection(sectionId) {
-  // Oculta todas las secciones
   let sections = document.querySelectorAll('.main-section');
   sections.forEach(section => {
     section.style.display = 'none';
   });
-
-  // Muestra la sección seleccionada
   document.getElementById(sectionId).style.display = 'block';
 }
 
@@ -14,13 +11,13 @@ function showSection(sectionId) {
 document.getElementById("vacancy-form").addEventListener("submit", function (e) {
   e.preventDefault();
 
-  // Obtiene los valores del formulario de vacantes
+  // Obtener los valores del formulario
   let companyName = document.getElementById("company-name").value;
   let jobTitle = document.getElementById("job-title").value;
   let jobLocation = document.getElementById("job-location").value;
   let jobDescription = document.getElementById("job-description").value;
 
-  // Crea un objeto con los datos de la vacante
+  // Crear un objeto con los datos de la vacante
   let newVacancy = {
     companyName,
     jobTitle,
@@ -28,19 +25,17 @@ document.getElementById("vacancy-form").addEventListener("submit", function (e) 
     jobDescription
   };
 
-  // Recupera las vacantes existentes del Local Storage
+  // Recuperar las vacantes existentes del Local Storage
   let vacancies = JSON.parse(localStorage.getItem("vacancies")) || [];
 
-  // Agrega la nueva vacante al array
+  // Agregar la nueva vacante al array
   vacancies.push(newVacancy);
 
-  // Guarda las vacantes actualizadas en el Local Storage
+  // Guardar las vacantes actualizadas en el Local Storage
   localStorage.setItem("vacancies", JSON.stringify(vacancies));
 
-  // Mensaje de confirmación
+  // Mostrar mensaje de confirmación y limpiar el formulario
   alert("Vacante registrada correctamente.");
-
-  // Limpia el formulario
   document.getElementById("vacancy-form").reset();
 });
 
@@ -51,11 +46,13 @@ function searchJobs() {
 
   let vacancies = JSON.parse(localStorage.getItem("vacancies")) || [];
 
+  // Filtrar las vacantes según los criterios ingresados
   let filteredVacancies = vacancies.filter(vacancy => {
     return vacancy.jobTitle.toLowerCase().includes(searchTitle) &&
            vacancy.jobLocation.toLowerCase().includes(searchLocation);
   });
 
+  // Mostrar los resultados en el contenedor de resultados
   let resultsContainer = document.getElementById("results-list");
   resultsContainer.innerHTML = ""; // Limpia los resultados anteriores
 
