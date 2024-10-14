@@ -19,13 +19,15 @@ document.getElementById("vacancy-form").addEventListener("submit", function (e) 
   let jobTitle = document.getElementById("job-title").value;
   let jobLocation = document.getElementById("job-location").value;
   let jobDescription = document.getElementById("job-description").value;
+  let jobDisability = document.getElementById("job-disability").value; // Tipo de discapacidad admitida
 
   // Crear un objeto con los datos de la vacante
   let newVacancy = {
     companyName,
     jobTitle,
     jobLocation,
-    jobDescription
+    jobDescription,
+    jobDisability // Agregar el campo discapacidad
   };
 
   // Recuperar las vacantes existentes del Local Storage
@@ -40,49 +42,50 @@ document.getElementById("vacancy-form").addEventListener("submit", function (e) 
   // Mensaje de confirmación
   alert("Vacante registrada correctamente.");
 
-  // Limpia el formulario
+  // Limpiar el formulario
   document.getElementById("vacancy-form").reset();
 });
 
 // Función para buscar vacantes
 function searchJobs() {
-  // Obtiene los criterios de búsqueda del formulario
+  // Obtener los criterios de búsqueda del formulario
   let searchTitle = document.getElementById("search-title").value.toLowerCase();
   let searchLocation = document.getElementById("search-location").value.toLowerCase();
+  let searchDisability = document.getElementById("search-disability").value.toLowerCase();
 
-  // Recupera las vacantes almacenadas en el Local Storage
+  // Recuperar las vacantes almacenadas en el Local Storage
   let vacancies = JSON.parse(localStorage.getItem("vacancies")) || [];
 
-  // Filtra las vacantes según los criterios ingresados
+  // Filtrar las vacantes según los criterios ingresados
   let filteredVacancies = vacancies.filter(vacancy => {
-    return vacancy.jobTitle.toLowerCase().includes(searchTitle) &&
-           vacancy.jobLocation.toLowerCase().includes(searchLocation);
+    let matchTitle = vacancy.jobTitle.toLowerCase().includes(searchTitle);
+    let matchLocation = vacancy.jobLocation.toLowerCase().includes(searchLocation);
+    let matchDisability = (searchDisability === 'todas') || (vacancy.jobDisability.toLowerCase() === searchDisability);
+    
+    return matchTitle && matchLocation && matchDisability;
   });
 
-  // Muestra los resultados en el contenedor de resultados
+  // Mostrar los resultados en el contenedor de resultados
   let resultsContainer = document.getElementById("results-list");
-  resultsContainer.innerHTML = ""; // Limpia los resultados anteriores
+  resultsContainer.innerHTML = ""; // Limpiar los resultados anteriores
 
-  // Si hay vacantes que coinciden, crea elementos HTML para cada una
+  // Si hay vacantes que coinciden, crear elementos HTML para cada una
   if (filteredVacancies.length > 0) {
     filteredVacancies.forEach(vacancy => {
-      // Crea un nuevo elemento <li> para cada vacante
+      // Crear un nuevo elemento <li> para cada vacante
       let vacancyItem = document.createElement("li");
       vacancyItem.innerHTML = `
         <strong>${vacancy.jobTitle}</strong> en <strong>${vacancy.jobLocation}</strong><br>
         <em>${vacancy.companyName}</em><br>
         <p>${vacancy.jobDescription}</p>
-        <button class="btn" onclick="readText('Título del trabajo: ${vacancy.jobTitle}, Ubicación: ${vacancy.jobLocation}, Empresa: ${vacancy.companyName}. Descripción: ${vacancy.jobDescription}')">Escuchar Vacante</button>
+        <p><strong>Discapacidad Admitida:</strong> ${vacancy.jobDisability}</p>
       `;
       resultsContainer.appendChild(vacancyItem);
     });
   } else {
-    // Si no se encuentran resultados, muestra un mensaje
+    // Si no se encuentran resultados, mostrar un mensaje
     resultsContainer.innerHTML = "<p>No se encontraron vacantes para los criterios de búsqueda especificados.</p>";
   }
-
-  // Muestra un mensaje de resumen de la búsqueda
-  alert(`Se encontraron ${filteredVacancies.length} vacantes.`);
 }
 
 // Función para leer texto en voz alta usando SpeechSynthesis
