@@ -9,123 +9,81 @@
 </head>
 <body>
   <!-- Encabezado de la página -->
-  <header>
+  <header role="banner">
     <h1>Portal de Inclusión Laboral</h1>
-    <nav>
-      <ul class="navbar">
-        <li><a href="#" onclick="showSection('options')">Inicio</a></li>
-        <li><a href="#" onclick="showSection('search-jobs')">Buscar Empleo</a></li>
-        <li><a href="#" onclick="showSection('post-vacancy')">Registrar Vacante</a></li>
-        <li><a href="#" onclick="showSection('resources')">Guías de Adaptación</a></li>
+    <nav aria-label="Menú principal">
+      <ul class="navbar" role="menubar">
+        <li role="menuitem"><a href="#" onclick="showSection('options')">Inicio</a></li>
+        <li role="menuitem"><a href="#" onclick="showSection('search-jobs')">Buscar Empleo</a></li>
+        <li role="menuitem"><a href="#" onclick="showSection('post-vacancy')">Registrar Vacante</a></li>
+        <li role="menuitem"><a href="#" onclick="showSection('resources')">Guías de Adaptación</a></li>
       </ul>
     </nav>
   </header>
 
   <!-- Sección principal con las tres opciones -->
-  <section id="options" class="main-section">
+  <section id="options" class="main-section" role="region" aria-labelledby="bienvenida-titulo">
     <div class="welcome">
-      <h2>Bienvenido a la Plataforma de Inclusión Laboral</h2>
+      <h2 id="bienvenida-titulo">Bienvenido a la Plataforma de Inclusión Laboral</h2>
       <p>Nuestro objetivo es conectar a las empresas con personas con discapacidades físicas, promoviendo la inclusión laboral en un entorno accesible y adaptable.</p>
     </div>
     <div class="options-container">
       <!-- Opción Buscar Empleo -->
-      <div class="option-card">
-        <h3>Buscar Empleo</h3>
+      <div class="option-card" role="group" aria-labelledby="buscar-empleo">
+        <h3 id="buscar-empleo">Buscar Empleo</h3>
         <p>Encuentra oportunidades laborales adaptadas a tus necesidades.</p>
         <div class="buttons">
-          <button class="btn" onclick="showSection('search-jobs')">Buscar Trabajo</button>
-          <button class="btn" onclick="readText('Buscar Empleo. Encuentra oportunidades laborales adaptadas a tus necesidades.')">Escuchar</button>
+          <button class="btn" aria-label="Buscar Trabajo" onclick="showSection('search-jobs')">Buscar Trabajo</button>
+          <button class="btn" aria-label="Escuchar Descripción Buscar Empleo" onclick="readText('Buscar Empleo. Encuentra oportunidades laborales adaptadas a tus necesidades.')">Escuchar</button>
         </div>
       </div>
 
       <!-- Opción Registrar Vacante -->
-      <div class="option-card">
-        <h3>Registrar Vacante</h3>
+      <div class="option-card" role="group" aria-labelledby="registrar-vacante">
+        <h3 id="registrar-vacante">Registrar Vacante</h3>
         <p>Publica oportunidades laborales adaptadas para personas con discapacidades físicas.</p>
         <div class="buttons">
-          <button class="btn" onclick="showSection('post-vacancy')">Registrar Vacante</button>
-          <button class="btn" onclick="readText('Registrar Vacante. Publica oportunidades laborales adaptadas para personas con discapacidades físicas.')">Escuchar</button>
+          <button class="btn" aria-label="Registrar Vacante" onclick="showSection('post-vacancy')">Registrar Vacante</button>
+          <button class="btn" aria-label="Escuchar Descripción Registrar Vacante" onclick="readText('Registrar Vacante. Publica oportunidades laborales adaptadas para personas con discapacidades físicas.')">Escuchar</button>
         </div>
       </div>
 
       <!-- Opción Guías de Adaptación -->
-      <div class="option-card">
-        <h3>Guías de Adaptación</h3>
+      <div class="option-card" role="group" aria-labelledby="ver-guias">
+        <h3 id="ver-guias">Guías de Adaptación</h3>
         <p>Consulta nuestras guías para adaptar el entorno de trabajo según la discapacidad.</p>
         <div class="buttons">
-          <button class="btn" onclick="showSection('resources')">Ver Guías</button>
-          <button class="btn" onclick="readText('Guías de Adaptación. Consulta nuestras guías para adaptar el entorno de trabajo según la discapacidad.')">Escuchar</button>
+          <button class="btn" aria-label="Ver Guías de Adaptación" onclick="showSection('resources')">Ver Guías</button>
+          <button class="btn" aria-label="Escuchar Descripción Guías de Adaptación" onclick="readText('Guías de Adaptación. Consulta nuestras guías para adaptar el entorno de trabajo según la discapacidad.')">Escuchar</button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Sección para buscar empleo -->
-  <section id="search-jobs" class="main-section" style="display: none;">
-    <h2>Buscar Empleo</h2>
-    <form id="job-search-form">
-      <label for="search-title">Título del Empleo:</label>
-      <input type="text" id="search-title" placeholder="Ej. Recepcionista">
-      <label for="search-location">Ubicación:</label>
-      <input type="text" id="search-location" placeholder="Ej. Santiago">
-      <div class="buttons">
-        <button type="button" class="btn" onclick="searchJobs()">Buscar</button>
-        <button class="btn" onclick="readText('Buscar Empleo. Ingresa el título del empleo y la ubicación para encontrar oportunidades laborales.')">Escuchar</button>
-      </div>
-    </form>
-    <div id="search-results">
-      <h3>Resultados de Búsqueda:</h3>
-      <ul id="results-list">
-        <!-- Los resultados de búsqueda aparecerán aquí -->
-      </ul>
-    </div>
-  </section>
-
-  <!-- Sección para registrar vacantes -->
-  <section id="post-vacancy" class="main-section" style="display: none;">
-    <h2>Registrar una Vacante</h2>
-    <p>Las empresas pueden publicar sus vacantes de empleo adaptadas para personas con discapacidad física.</p>
-    <form id="vacancy-form">
-      <label for="company-name">Nombre de la Empresa:</label>
-      <input type="text" id="company-name" placeholder="Ej. ABC Corp" required>
-      <label for="job-title">Título del Empleo:</label>
-      <input type="text" id="job-title" placeholder="Ej. Recepcionista, Analista" required>
-      <label for="job-location">Ubicación:</label>
-      <input type="text" id="job-location" placeholder="Ej. Santiago, Chile" required>
-      <label for="job-description">Descripción del Trabajo:</label>
-      <textarea id="job-description" rows="4" placeholder="Descripción del empleo y requisitos" required></textarea>
-      <div class="buttons">
-        <button type="submit" class="btn">Registrar Vacante</button>
-        <button type="button" class="btn" onclick="readText('Registrar Vacante. Ingresa el nombre de la empresa, el título del empleo, la ubicación y la descripción del trabajo para registrar una vacante nueva.')">Escuchar</button>
-      </div>
-    </form>
-  </section>
-
   <!-- Sección de guías para empresas -->
-  <section id="resources" class="main-section" style="display: none;">
-    <h2>Guías de Adaptación para Empresas</h2>
+  <section id="resources" class="main-section" role="region" aria-labelledby="guias-titulo" style="display: none;">
+    <h2 id="guias-titulo">Guías de Adaptación para Empresas</h2>
     <p>Consulta nuestras guías para adaptar el entorno de trabajo según la discapacidad.</p>
     <div class="buttons">
-      <button class="btn" onclick="readText('Guías de Adaptación. Consulta nuestras guías para adaptar el entorno de trabajo según la discapacidad.')">Escuchar</button>
+      <button class="btn" aria-label="Escuchar Descripción Guías de Adaptación" onclick="readText('Guías de Adaptación. Consulta nuestras guías para adaptar el entorno de trabajo según la discapacidad.')">Escuchar</button>
     </div>
-    <div class="guides-container">
-      <div class="guide-card">
+    <div class="guides-container" role="list">
+      <div class="guide-card" role="listitem">
         <h3>Adaptación para Discapacidad Motora</h3>
-        <a href="guia-motora.html" class="btn">Ver Guía</a>
+        <a href="guia-motora.html" class="btn" aria-label="Ver Guía para Discapacidad Motora">Ver Guía</a>
       </div>
-      <div class="guide-card">
+      <div class="guide-card" role="listitem">
         <h3>Adaptación para Discapacidad Visual</h3>
-        <a href="guia-visual.html" class="btn">Ver Guía</a>
+        <a href="guia-visual.html" class="btn" aria-label="Ver Guía para Discapacidad Visual">Ver Guía</a>
       </div>
-      <div class="guide-card">
+      <div class="guide-card" role="listitem">
         <h3>Adaptación para Discapacidad Auditiva</h3>
-        <a href="guia-auditiva.html" class="btn">Ver Guía</a>
+        <a href="guia-auditiva.html" class="btn" aria-label="Ver Guía para Discapacidad Auditiva">Ver Guía</a>
       </div>
     </div>
   </section>
 
-  <!-- Pie de página -->
-  <footer>
+  <footer role="contentinfo">
     <p>© 2024 Inclusión Laboral | Todos los derechos reservados</p>
   </footer>
 </body>
